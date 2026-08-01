@@ -38,7 +38,6 @@
             z-index: 2;
         }
 
-        /* Scanner glow line */
         .glow-line {
             position: absolute;
             top: 0;
@@ -59,7 +58,6 @@
             100% { top: 100%; opacity: 0.1; }
         }
 
-        /* Header */
         .header {
             display: flex;
             align-items: center;
@@ -100,7 +98,6 @@
             backdrop-filter: blur(2px);
         }
 
-        /* ===== TEDDY BEAR SECTION (CLICKABLE) ===== */
         .teddy-section {
             display: flex;
             flex-direction: column;
@@ -110,6 +107,479 @@
             position: relative;
             z-index: 2;
         }
+
+        .teddy-btn {
+            background: radial-gradient(circle at 40% 35%, #3d1f2e, #1f0d18);
+            border: none;
+            border-radius: 50%;
+            width: 140px;
+            height: 140px;
+            cursor: pointer;
+            box-shadow: 0 12px 40px rgba(255, 60, 140, 0.35), 0 0 0 2px #ff7eb366 inset, 0 0 30px #ff3b8c40;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5.2rem;
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        .teddy-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 14px 50px rgba(255, 60, 140, 0.5), 0 0 0 3px #ff8eb3 inset;
+        }
+
+        .teddy-btn:active {
+            transform: scale(0.94);
+            box-shadow: 0 4px 20px rgba(255, 60, 140, 0.6);
+        }
+
+        .teddy-btn .pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 130, 180, 0.2);
+            animation: ringPulse 2.4s ease-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes ringPulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        .teddy-label {
+            color: #eac0d6;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            font-weight: 300;
+            margin-top: 6px;
+            background: rgba(255, 120, 180, 0.06);
+            padding: 4px 16px;
+            border-radius: 40px;
+            border: 1px solid #ff7eb344;
+        }
+
+        .teddy-label i {
+            color: #ff6e9e;
+            margin: 0 4px;
+        }
+
+        .letter-wrapper {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 1s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s ease, margin 0.5s ease, padding 0.5s ease;
+            margin-top: 0;
+            border-radius: 32px;
+            background: rgba(15, 5, 12, 0.5);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 180, 210, 0.15);
+            box-shadow: 0 0 50px #ff3b8c15;
+            position: relative;
+            z-index: 2;
+        }
+
+        .letter-wrapper.open {
+            max-height: 2000px;
+            opacity: 1;
+            margin-top: 28px;
+            padding: 22px 18px 28px;
+        }
+
+        .letter-inner {
+            background: linear-gradient(145deg, rgba(40, 18, 32, 0.7), rgba(20, 8, 16, 0.8));
+            border-radius: 28px;
+            padding: 22px 16px 20px;
+            border: 1px solid rgba(255, 200, 220, 0.1);
+            box-shadow: inset 0 0 40px rgba(255, 60, 140, 0.05);
+            position: relative;
+        }
+
+        .letter-inner::after {
+            content: "💌";
+            position: absolute;
+            top: -14px;
+            right: 16px;
+            font-size: 2.2rem;
+            filter: drop-shadow(0 0 12px #ff3b8c);
+            opacity: 0.6;
+        }
+
+        .love-letter-content {
+            color: #f5e6ef;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            padding: 4px 2px;
+        }
+
+        .love-letter-content .letter-heading {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #ffb3d1, #ff7eb3, #ffb3d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .love-letter-content .letter-heading i {
+            -webkit-text-fill-color: initial;
+            color: #ff5f8f;
+        }
+
+        .love-letter-content .greeting {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffb3d1;
+            margin-bottom: 10px;
+        }
+
+        .love-letter-content p {
+            margin-bottom: 12px;
+            text-align: justify;
+            padding: 0 2px;
+        }
+
+        .love-letter-content .highlight {
+            color: #ff8eb5;
+            font-weight: 500;
+        }
+
+        .love-letter-content .signature-block {
+            text-align: center;
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255, 130, 180, 0.2);
+        }
+
+        .love-letter-content .signature-block .big-sign {
+            font-size: 1.3rem;
+            font-weight: 600;
+            background: linear-gradient(45deg, #ffb3d1, #ff6e9e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .love-letter-content .signature-block .heart-line {
+            color: #ff5f8f;
+            font-size: 1.2rem;
+            animation: pulse 1.6s infinite;
+            display: inline-block;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 18px 0 6px;
+        }
+
+        .photo-item {
+            aspect-ratio: 1 / 1;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 2px solid rgba(255, 130, 180, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 130, 180, 0.15) inset;
+            transition: 0.25s;
+            background: radial-gradient(circle at 30% 30%, #2a182e, #150b14);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.03);
+            border-color: #ff8eb3;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Fallback emoji when image missing */
+        .photo-item .fallback-emoji {
+            font-size: 3.4rem;
+            filter: drop-shadow(0 0 10px #ff7eb366);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .photo-item img:not([src]), 
+        .photo-item img[src=""],
+        .photo-item img[src*="error"] {
+            display: none;
+        }
+
+        .letter-footer {
+            text-align: center;
+            margin-top: 14px;
+            color: #b088b0;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            border-top: 1px solid rgba(255, 130, 180, 0.15);
+            padding-top: 14px;
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .letter-footer i {
+            color: #ff6e9e;
+            margin: 0 4px;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.15); }
+            100% { opacity: 0.6; transform: scale(1); }
+        }
+
+        @media (max-width: 480px) {
+            .card { padding: 20px 14px 30px; }
+            .teddy-btn { width: 110px; height: 110px; font-size: 4rem; }
+            .header h2 { font-size: 1.6rem; }
+            .photo-grid { gap: 8px; }
+            .love-letter-content { font-size: 0.88rem; }
+            .love-letter-content .letter-heading { font-size: 1.3rem; }
+        }
+
+        .heart-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 1.2rem;
+            color: #ff4d7a;
+            opacity: 0;
+            animation: floatHeart 6s ease-in forwards;
+            text-shadow: 0 0 20px rgba(255, 60, 120, 0.6), 0 0 60px rgba(255, 30, 100, 0.3);
+        }
+
+        .floating-heart:nth-child(odd) { color: #ff6e9e; }
+        .floating-heart:nth-child(3n) { color: #ff8eb5; }
+        .floating-heart:nth-child(5n+2) { color: #ff5f8f; }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) scale(0.3) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 0.9; }
+            90% { opacity: 0.8; }
+            100% {
+                transform: translateY(-10vh) scale(1.2) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .floating-heart.size-sm { font-size: 0.9rem; animation-duration: 7s; }
+        .floating-heart.size-md { font-size: 1.4rem; animation-duration: 5.5s; }
+        .floating-heart.size-lg { font-size: 2rem; animation-duration: 8s; }
+        .floating-heart.size-xl { font-size: 2.6rem; animation-duration: 9s; }
+    </style>
+</head>
+<body>
+
+    <div class="heart-container" id="heartContainer"></div>
+
+    <div class="card">
+        <div class="glow-line"></div>
+
+        <div class="header">
+            <h2>
+                <i class="fas fa-crown"></i> bachha
+            </h2>
+            <span class="badge"><i class="fas fa-heart" style="color:#ff6e9e;"></i> GF Day</span>
+        </div>
+
+        <div class="teddy-section">
+            <button class="teddy-btn" id="teddyBtn">
+                <span class="pulse-ring"></span>
+                🧸
+            </button>
+            <span class="teddy-label">
+                <i class="fas fa-hand-pointer"></i> touch teddy to open <i class="fas fa-hand-pointer"></i>
+            </span>
+        </div>
+
+        <div class="letter-wrapper" id="letterWrapper">
+            <div class="letter-inner">
+
+                <div class="love-letter-content">
+
+                    <div class="letter-heading">
+                        <i class="fas fa-heart" style="color:#ff5f8f;"></i> To My Bachha <i class="fas fa-heart" style="color:#ff5f8f;"></i>
+                    </div>
+
+                    <div class="greeting">❤️ Happy Girlfriend Day, Meri Jaan. 🌹</div>
+
+                    <p>
+                        Kabhi socha nahi tha ki meri zindagi mein koi aisa aayega jo meri har chhoti si khushi ki wajah ban jayega. Tumhare saath bitaya hua har pal mere liye bahut special hai. Chahe hum baatein karein, hasein, ya bas ek dusre ke saath chup baithen, har lamha mere dil ke bahut kareeb hai.
+                    </p>
+
+                    <p>
+                        Thank you meri zindagi mein aane ke liye. Thank you mujhe samajhne ke liye, meri har baat sunne ke liye, aur meri life ko itna khoobsurat banane ke liye. Shayad main har baar apni feelings sahi tarah se express nahi kar pata, lekin itna zaroor jaanta hoon ki <span class="highlight">tum meri duniya ka sabse pyara hissa ho.</span>
+                    </p>
+
+                    <p>
+                        Main promise karta hoon ki har mushkil waqt mein tumhare saath khada rahunga. Tumhari smile hamesha meri priority rahegi, kyunki <span class="highlight">tumhari khushi hi meri sabse badi khushi hai.</span>
+                    </p>
+
+                    <p>
+                        Bas ek hi dua hai ki hum dono ka saath hamesha aise hi bana rahe. Har naya din tumhare saath aur bhi khoobsurat ho, aur har yaad humein aur kareeb le aaye.
+                    </p>
+
+                    <div class="signature-block">
+                        <div style="font-size:1.1rem; color:#f0d6e3;">
+                            Happy Girlfriend Day, Bachha. ❤️
+                        </div>
+                        <div style="margin: 8px 0 4px;">
+                            <span class="heart-line">❤️</span>
+                            <span class="big-sign">I love you more than words can ever explain.</span>
+                            <span class="heart-line">❤️</span>
+                        </div>
+                        <div style="font-size:1.1rem; color:#ffb3d1; letter-spacing: 1px;">
+                            Aaj, kal aur hamesha... sirf tum. 🌹❤️
+                        </div>
+                        <div style="margin-top: 10px; font-size:0.9rem; color:#c9a8bb;">
+                            <i class="fas fa-feather-alt"></i> ~ tera bachha ~ <i class="fas fa-feather-alt"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ===== 6 PHOTOS - Ab agar image nahi hai toh emoji dikhega ===== -->
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <img src="images/photo1.jpg" alt="Memory 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                        <span class="fallback-emoji" style="display:none;">🌸</span>
+                    </div>
+                    <div class="photo-item">
+                        <img src="images/photo2.jpg" alt="Memory 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                        <span class="fallback-emoji" style="display:none;">🌷</span>
+                    </div>
+                    <div class="photo-item">
+                        <img src="images/photo3.jpg" alt="Memory 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                        <span class="fallback-emoji" style="display:none;">💐</span>
+                    </div>
+                    <div class="photo-item">
+                        <img src="images/photo4.jpg" alt="Memory 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                        <span class="fallback-emoji" style="display:none;">🌺</span>
+                    </div>
+                    <div class="photo-item">
+                        <img src="images/photo5.jpg" alt="Memory 5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                        <span class="fallback-emoji" style="display:none;">🌹</span>
+                    </div>
+                    <div class="photo-item">
+                        <img src="images/photo6.jpg" alt="Memory 6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                        <span class="fallback-emoji" style="display:none;">🪷</span>
+                    </div>
+                </div>
+
+                <div class="letter-footer">
+                    <span><i class="fas fa-camera"></i> 6 moments</span>
+                    <span><i class="fas fa-infinity"></i> forever</span>
+                    <span><i class="fas fa-heart"></i> only you</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ===== FLOATING HEARTS =====
+            const heartContainer = document.getElementById('heartContainer');
+            const heartSymbols = ['❤️', '💖', '💗', '♥', '❤️‍🔥', '💕', '💞'];
+
+            function createFloatingHeart() {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                const sizes = ['size-sm', 'size-md', 'size-lg', 'size-xl'];
+                heart.classList.add(sizes[Math.floor(Math.random() * sizes.length)]);
+                heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.opacity = 0.4 + Math.random() * 0.5;
+                heartContainer.appendChild(heart);
+                setTimeout(() => {
+                    if (heart.parentNode) heart.remove();
+                }, 10000);
+            }
+
+            setInterval(createFloatingHeart, 400);
+            for (let i = 0; i < 15; i++) {
+                setTimeout(createFloatingHeart, i * 150);
+            }
+
+            // ===== TEDDY BEAR CLICK - LETTER OPEN =====
+            const teddyBtn = document.getElementById('teddyBtn');
+            const letterWrapper = document.getElementById('letterWrapper');
+
+            teddyBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isOpen = letterWrapper.classList.contains('open');
+
+                if (isOpen) {
+                    letterWrapper.classList.remove('open');
+                    teddyBtn.innerHTML = `<span class="pulse-ring"></span> 🧸`;
+                    teddyBtn.style.background = 'radial-gradient(circle at 40% 35%, #3d1f2e, #1f0d18)';
+                } else {
+                    letterWrapper.classList.add('open');
+                    teddyBtn.innerHTML = `<span class="pulse-ring"></span> 🧸💌`;
+                    teddyBtn.style.background = 'radial-gradient(circle at 40% 35%, #5a2a3e, #2a0f1e)';
+                    
+                    for (let i = 0; i < 25; i++) {
+                        setTimeout(createFloatingHeart, i * 70);
+                    }
+                }
+            });
+
+            // ===== PHOTO CLICK =====
+            const photoItems = document.querySelectorAll('.photo-item');
+            photoItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.92)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+
+            console.log('💖 Teddy bear click karo! Letter open hoga!');
+        })();
+    </script>
+
+</body>
+</html>        }
 
         .teddy-btn {
             background: radial-gradient(circle at 40% 35%, #3d1f2e, #1f0d18);
